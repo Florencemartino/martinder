@@ -6,6 +6,11 @@ class ConversationsController < ApplicationController
     @conversations = Conversation.all
   end
 
+  def new
+    users = User.all
+    @users = users.where.not(id: current_user.id)
+  end
+
   def create
     existing_conversation = Conversation.between(params[:sender_id], params[:recipient_id])
     if existing_conversation.present?

@@ -1,0 +1,9 @@
+<h3>Salut <%= @user.first_name %> </h3>
+
+<p>  Que veux-tu faire aujourd'hui ?</p>
+<div>
+<%= link_to "Je veux Matcher", matches_path, :class => "btn btn-primary" %>
+</div>
+<div>
+<%= link_to "Je veux discuter", conversations_path, :class => "btn btn-primary" %>
+</div>

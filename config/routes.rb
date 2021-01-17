@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pages/home'
   devise_for :users
 
   devise_scope :user do  
@@ -8,6 +9,10 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+
+  resources :matches
   
-  root 'conversations#index'
+  #root 'conversations#index'
+
+  root to: 'pages#home'
 end

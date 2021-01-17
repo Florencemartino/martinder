@@ -1,0 +1,14 @@
+<div>
+  <h1>A qui veux-tu écrire ?</h1>
+  <ul>
+    <% @users.each do |user| %>
+      <li>
+        <%= link_to user.email,
+          conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post"%>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div>
+  <%= link_to "Retour", root_path, :class => "btn btn-primary" %>
+</div>
