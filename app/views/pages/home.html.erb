@@ -1,9 +1,33 @@
-<h3>Salut <%= @user.first_name %> </h3>
+<div class="global-container">
+  <div class="flexbox home-container container">
+    <div class="item row">
+      <div class="col-12 col-lg-4">
+        <h3>Salut <%= @user.first_name %> </h3>
+      </div>
+    </div>
 
-<p>  Que veux-tu faire aujourd'hui ?</p>
-<div>
-<%= link_to "Je veux Matcher", matches_path, :class => "btn btn-primary" %>
-</div>
-<div>
-<%= link_to "Je veux discuter", conversations_path, :class => "btn btn-primary" %>
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <% if @user.photos.length > 0 %>
+          <% @user.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 50, width: 50, crop: :fill, :radius=>"max" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-container">
+    <div class="item row">
+      <div class="col-12 col-lg-4">
+        <p>  Que veux-tu faire aujourd'hui ?</p>
+        <div class="item">
+          <%= link_to "Je veux commencer une nouvelle discussion", matches_path, :class => "btn btn-primary" %>
+        </div>
+        <div  class="item">
+          <%= link_to "Voir les autres discussions", conversations_path, :class => "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

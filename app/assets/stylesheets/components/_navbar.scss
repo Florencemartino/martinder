@@ -1,12 +1,16 @@
-.navbar-lewagon {
+.hmenu {
   justify-content: space-between;
-  background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.no-bullets {
+  list-style-type: none;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.login-logout {
+  margin-left: 60%;
+  margin-top: -13%;
+}
+
+.registration-item {
+  margin-left: -5%;
 }

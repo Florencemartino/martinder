@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :get) %>        
+  <li class="no-bullets login-logout">
+  <%= link_to('Logout', destroy_user_session_path, method: :get, class: "btn btn-info") %>        
   </li>
 <% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path) %>  
+  <li class="no-bullets login-logout">
+  <%= link_to('Login', new_user_session_path, class: "btn btn-info") %>  
   </li>
 <% end %>
