@@ -2,7 +2,11 @@
   <div class="flexbox home-container container">
     <div class="item row">
       <div class="col-12 col-lg-4">
-        <h3>Salut <%= @user.first_name %> </h3>
+        <% if @user.first_name || @user.nickname %>
+          <h3>Salut <%= @user.first_name %> </h3>
+        <% else %>
+          <h3> Salut camarade ! </h3>
+        <% end %>
       </div>
     </div>
 
@@ -22,10 +26,16 @@
       <div class="col-12 col-lg-4">
         <p>  Que veux-tu faire aujourd'hui ?</p>
         <div class="item">
-          <%= link_to "Je veux commencer une nouvelle discussion", matches_path, :class => "btn btn-primary" %>
+          <%= link_to "Matcher !", matches_path, :class => "btn btn-primary" %>
         </div>
         <div  class="item">
-          <%= link_to "Voir les autres discussions", conversations_path, :class => "btn btn-primary" %>
+          <%= link_to "Voir mes discussions !", conversations_path, :class => "btn btn-primary" %>
+        </div>
+        <div  class="item">
+          <%= link_to "Pimper mes Photos !", edit_user_path(@user.id, :profil => false), :class => "btn btn-primary" %>
+        </div>
+        <div  class="item">
+          <%= link_to "Pimper mon Profil !", edit_user_path(@user.id, :profil => true), :class => "btn btn-primary" %>
         </div>
       </div>
     </div>

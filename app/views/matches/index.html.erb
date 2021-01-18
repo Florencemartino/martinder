@@ -1,14 +1,20 @@
-<h3>Voici la liste des amis disponibles</h3>
-<ul>
-  <% @users.each do |user| %>
-    <li> <%= user.nickname %> </li>
-    <% if user.photos.length > 0 %>
-        <% user.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 100, width: 100, crop: :fill %>
+<div class="global-container container">
+  <div class="row">
+    <h3>Choisi ton match 😏</h3>
+    <ul>
+      <% @users.each do |user| %>
+        <li class="no-bullets" > <%= user.nickname %> </li>
+        <% if user.photos.length > 0 %>
+            <% user.photos.each do |photo| %>
+              <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post" do %>
+                <%= cl_image_tag photo.key, height: 350, width: 300, crop: :fill %>
+              <% end %>
+            <% end %>
         <% end %>
-    <% end %>
-  <% end%>
-</ul>
-<div>
-  <%= link_to "Retour", root_path, :class => "btn btn-primary" %>
+      <% end%>
+    </ul>
+  </div>
+  <div class="row">
+    <%= link_to "Retour", root_path, :class => "btn btn-primary" %>
+  </div>
 </div>

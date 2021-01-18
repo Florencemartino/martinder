@@ -1,0 +1,31 @@
+<div class="global-container">
+  <div class="container" %>
+      <div class="row" %>
+        <div class="col-12 col-lg-4">
+          <%= simple_form_for @user do |f| %>
+            <% if params[:profil] === 'true' %>
+              <%= f.input :first_name %>
+              <%= f.input :last_name %>
+              <%= f.input :nickname %>
+              <%= f.input :age, collection: 18..77 %>
+              <%= f.input :sex_preference, as: :radio_buttons, collection: [['female'], ['male']] %>
+            <% else %>
+              <% if @user.photos.length > 0 %>
+                  <% @user.photos.each do |photo| %>
+                    <%= cl_image_tag photo.key, height: 350, width: 300, crop: :fill %>
+                  <% end %>
+                  <%= f.file_field :photos %>
+              <% else %>
+                <%= f.file_field :photos %>
+              <% end %>
+            <% end %>
+            <%= f.button :submit, class: "btn btn-info" %>
+          <% end %>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <%= link_to "Retour", root_path, :class => "btn btn-primary" %>
+  </div>
+</div>
