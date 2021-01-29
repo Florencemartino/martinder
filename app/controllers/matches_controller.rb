@@ -1,7 +1,8 @@
 class MatchesController < ApplicationController
 
   def index
-    @users = User.all
-    @users = @users.where.not(id: current_user.id)
+    @users = User.where.not(id: current_user.id)
+
+    @users = @users.where(sex: current_user.sex_preference, sex_preference: current_user.sex)
   end
 end

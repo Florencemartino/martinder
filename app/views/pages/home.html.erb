@@ -1,41 +1,42 @@
-<div class="global-container">
+ <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <div class="flexbox home-container container">
-    <div class="item row">
-      <div class="col-12 col-lg-4">
-        <% if @user.first_name || @user.nickname %>
-          <h3>Salut <%= @user.first_name %> </h3>
-        <% else %>
-          <h3> Salut camarade ! </h3>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12 col-lg-4">
-        <% if @user.photos.length > 0 %>
-          <% @user.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 50, width: 50, crop: :fill, :radius=>"max" %>
+      <div class="item row">
+        <div class="col-12 col-lg-4">
+          <% if @user.first_name || @user.nickname %>
+            <h3>Salut <%= @user.first_name %> </h3>
+          <% else %>
+            <h3> Salut camarade ! </h3>
           <% end %>
-        <% end %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-4">
+          <% if @user.photos.length > 0 %>
+            <% @user.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 50, width: 50, crop: :fill, :radius=>"max" %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="home-container">
-    <div class="item row">
-      <div class="col-12 col-lg-4">
-        <p>  Que veux-tu faire aujourd'hui ?</p>
-        <div class="item">
-          <%= link_to "Matcher !", matches_path, :class => "btn btn-primary" %>
-        </div>
-        <div  class="item">
-          <%= link_to "Voir mes discussions !", conversations_path, :class => "btn btn-primary" %>
-        </div>
-        <div  class="item">
-          <%= link_to "Pimper mes Photos !", edit_user_path(@user.id, :profil => false), :class => "btn btn-primary" %>
-        </div>
-        <div  class="item">
-          <%= link_to "Pimper mon Profil !", edit_user_path(@user.id, :profil => true), :class => "btn btn-primary" %>
+    <div class="home-container">
+      <div class="item row">
+        <div class="col-12 col-lg-4">
+          <p>  Que veux-tu faire aujourd'hui ?</p>
+          <div class="item">
+            <%= link_to "Matcher !", matches_path, :class => "btn btn-primary" %>
+          </div>
+          <div  class="item">
+            <%= link_to "Voir mes discussions !", conversations_path, :class => "btn btn-primary" %>
+          </div>
+          <div  class="item">
+            <%= link_to "Pimper mes Photos !", edit_user_path(@user.id, :profil => false), :class => "btn btn-primary" %>
+          </div>
+          <div  class="item">
+            <%= link_to "Pimper mon Profil !", edit_user_path(@user.id, :profil => true), :class => "btn btn-primary" %>
+          </div>
         </div>
       </div>
     </div>

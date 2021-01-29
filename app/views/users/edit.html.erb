@@ -8,7 +8,7 @@
               <%= f.input :last_name %>
               <%= f.input :nickname %>
               <%= f.input :age, collection: 18..77 %>
-              <%= f.input :sex_preference, as: :radio_buttons, collection: [['female'], ['male']] %>
+              <%= f.input :sex_preference, as: :radio_buttons, collection: [['female', 'female'], ['male', 'male']] %>
             <% else %>
               <% if @user.photos.length > 0 %>
                   <% @user.photos.each do |photo| %>
