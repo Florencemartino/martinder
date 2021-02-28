@@ -1,25 +1,22 @@
 
 <ul id="slides">
-  <% @users.each do |user| %>
-  <div class="slide" data-id="<%=user.id%>">
-      <li>
-        <%= user.nickname %> 
-          <% if user.photos.length > 0 %>
-              <% user.photos.each do |photo| %>
-                <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post" do %>
-                  <%= cl_image_tag photo.key, height: 350, width: 300, crop: :fill %>
-                <% end %>
-              <% end %>
-          <% end %>
-        <% end%>
-      </li>
-  </div>
-  <div class="row">
-    <%= link_to "Retour", root_path, :class => "btn btn-primary" %>
-  </div>
+  <% @users.each_with_index do |user, i| %>
+
+    <li class="slide <%= 'showing' if i == 0 %>" data-id="<%=user.id%>" >
+       <% if user.photos.length > 0 %>
+        <% user.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 500, width: 300, crop: :fill %>
+        <% end %>
+      <% end %>
+      <span class="user-details"> <%= user.nickname %> </span> 
+    </li>
+  <% end%>
 </ul>
 
-<button class="controls" id="previous">"No"</button>
-<button class="controls" id="next">"Yes"</button>
+<div id='slide-controls'>
+  <span id="approve"><i class="fa fa-times-circle fa-3x"></i></span>
+  <span id="decline"><i class="fa fa-heart fa-3x"></i></span>
+</div>
+
 
 
