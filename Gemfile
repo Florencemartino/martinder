@@ -11,7 +11,9 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
-gem 'sassc-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '>= 3.2'
+gem 'font-awesome-sass', '~> 5.5.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -20,12 +22,10 @@ gem 'webpacker', '~> 4.0'
 #gem 'jbuilder', '~> 2.7'
 
 gem 'devise'
-
 gem 'simple_form'
-
 gem 'cloudinary', '~> 1.16.0'
-
 gem 'carrierwave', '~> 2.0'
+gem 'autoprefixer-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
