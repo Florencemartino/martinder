@@ -14,16 +14,11 @@ require("@fortawesome/fontawesome-free")
 
 require("../includes/slides")
 
-//import { slider } from '../includes/slides';
+import 'bootstrap';
 
-//slider()
-
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
-
-import $ from 'jquery';
-global.$ = jQuery;
+import { slider} from '../includes/slides'
+import { loadDynamicBannerText } from '../includes/banner';
+document.addEventListener('turbolinks:load', () => {
+    slider();
+    loadDynamicBannerText()
+  });
