@@ -4,7 +4,7 @@
       <li class="slide <%= 'showing' if i == 0 %>" data-id="<%=user.id%>" >
         <% if user.photos.length > 0 %>
           <% user.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 500, width: 350, crop: :fill %>
+              <%= cl_image_tag photo.key, height: 450, width: 350, crop: :fill %>
           <% end %>
         <% end %>
         <span class="user-details"> <%= user.nickname %>,<%= user.age %></span> 
