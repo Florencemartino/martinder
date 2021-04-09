@@ -9,6 +9,34 @@
   </div>
 
   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name,required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name,required: true %>
+  </div>
+
+  <br>
+
+  Tu es :
+  <div class="field">
+    <%= f.radio_button :sex, "female" %> Femme
+    <%= f.radio_button :sex, "male" %> Homme
+  </div>
+
+  <br>
+
+  Tu préfères pécho :
+  <div class="field">
+    <%= f.radio_button :sex_preference, "female" %> Femme
+    <%= f.radio_button :sex_preference, "male" %> Homme
+  </div>
+
+  <br>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>

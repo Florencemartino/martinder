@@ -26,6 +26,7 @@ gem 'simple_form'
 gem 'cloudinary', '~> 1.16.0'
 gem 'carrierwave', '~> 2.0'
 gem 'autoprefixer-rails'
+gem 'rails-i18n', '~> 6.0.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

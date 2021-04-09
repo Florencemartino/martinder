@@ -6,29 +6,34 @@
         <% if current_user.email === 'martin@gmail.com' %>
           Master of the Tinder universe, choisi avec qui tu veux discuter :
         <% else %>
-          <%= current_user.first_name %>, choisi avec qui tu veux discuter : 
+          <%= current_user.first_name %>, choisi avec qui tu veux discuter :
         <% end %>
       </h5>
     </div>
   </div>
 
-
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-6">
-      <div class="background-conversation">
-        <% @conversations.each do |conversation| %>
-          <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-            <% if conversation.sender_id == current_user.id %>
-              <% recipient = User.find(conversation.recipient_id) %>
-            <% else %>
-              <% recipient = User.find(conversation.sender_id) %>
+<% if current_user.matches.length > 0 %>
+  <% current_user.matches.each do |match| %>
+  <% Conversation.create(sender_id: current_user.id, recipient_id: match.id)%>
+  
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-6">
+        <div class="background-conversation">
+          <% @conversations.each do |conversation| %>
+            <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+              <% if conversation.sender_id == current_user.id %>
+                <% recipient = User.find(conversation.recipient_id) %>
+              <% else %>
+                <% recipient = User.find(conversation.sender_id) %>
+              <% end %>
+              <h5><%= link_to recipient.email, conversation_messages_path(conversation)%></h5>
             <% end %>
-            <h5><%= link_to recipient.email, conversation_messages_path(conversation)%></h5>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
+<% end%>
 
   <div class="row">
     <div class="col-sm-12 col-lg-6">

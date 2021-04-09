@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   resources :matches
 
   resources :users
-  
-  #root 'conversations#index'
+
+  post '/approve/:id' => 'matches#approve', as: :approve_user
+  post '/decline/:id' => 'matches#decline', as: :decline_user
+  get '/bravo' => 'matches#bravo', as: :bravo
 
   root to: 'pages#home'
 end
